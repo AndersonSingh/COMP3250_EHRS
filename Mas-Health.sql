@@ -1,0 +1,50 @@
+/* Create Database */ 
+
+/* CREATE DATABASE MasHealth; */
+
+CREATE TABLE Admin(
+
+	Username VARCHAR(15) NOT NULL,
+	FirstName VARCHAR(20) NOT NULL,
+	LastName VARCHAR(20) NOT NULL,
+	Password VARCHAR(65) NOT NULL,
+	PRIMARY KEY(Username)
+);
+
+CREATE TABLE Doctor(
+	
+	DoctorID INT(6) UNSIGNED AUTO_INCREMENT,
+	FirstName VARCHAR(20) NOT NULL,
+	LastName VARCHAR(20) NOT NULL,
+	Password VARCHAR(65) NOT NULL,
+	PasswordCheck CHAR(1) NOT NULL DEFAULT 'N',
+	AddressLine1 VARCHAR(50) NOT NULL,
+	AddressLine2 VARCHAR(50),
+	City VARCHAR(30) NOT NULL,
+	ContactNumber VARCHAR(30) NOT NULL,
+	Email VARCHAR(250) NOT NULL UNIQUE,
+	DOB DATE NOT NULL,
+	PRIMARY KEY(DoctorID)
+	
+);
+
+CREATE TABLE Patient(
+
+	PatientID INT(6) UNSIGNED AUTO_INCREMENT,
+	FirstName VARCHAR(20) NOT NULL,
+	LastName VARCHAR(20) NOT NULL,
+	Password VARCHAR(65) NOT NULL,
+	PasswordCheck CHAR(1) NOT NULL DEFAULT 'N',
+	DOB DATE NOT NULL,
+	ContactNumber VARCHAR(30) NOT NULL,
+	EmergencyContactName VARCHAR(30),
+	EmergencyContactNumber VARCHAR(30),
+	AddressLine1 VARCHAR(50) NOT NULL,
+	AddressLine2 VARCHAR(50),
+	City VARCHAR(30) NOT NULL,
+	Email VARCHAR(250) NOT NULL UNIQUE,
+	SharedHealthFlag CHAR(1) NOT NULL DEFAULT 'N',
+	EventFlag CHAR(1) NOT NULL DEFAULT 'N',
+	PRIMARY KEY(PatientID)
+	
+);

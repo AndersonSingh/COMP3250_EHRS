@@ -61,36 +61,45 @@ CREATE TABLE Event(
 	PRIMARY KEY(EventID)
 );
 
-CREATE TABLE AdverseReaction
-(
-	AdverseReactionID INT(6) UNSIGNED AUTO_INCREMENT,
-	Substance VARCHAR(50) NOT NULL,
-	Manifestation VARCHAR(50) NOT NULL,
-	PatientID INT(6) UNSIGNED NOT NULL,
-	FOREIGN KEY(PatientID) REFERENCES Patient(PatientID),
-	PRIMARY KEY(AdverseReactionID)
-);
+CREATE TABLE AdverseReaction(
+                AdverseReactionID INT(6) UNSIGNED AUTO_INCREMENT,
+                Substance VARCHAR(50) NOT NULL,
+                Manifestation VARCHAR(50) NOT NULL,
+                PatientID INT(6) UNSIGNED NOT NULL,
+                FOREIGN KEY(PatientID) REFERENCES Patient(PatientID),
+                PRIMARY KEY(AdverseReactionID)
+                );
 
 CREATE TABLE Medication
-(
-	MedicationID INT(6) UNSIGNED AUTO_INCREMENT,
-	Medicine VARCHAR(50) NOT NULL,
-	Directions VARCHAR(50) NOT NULL,
-	Indication VARCHAR(50),
-	ChangeType VARCHAR(50) NOT NULL DEFAULT 'Unchanged',
-	Recommendation VARCHAR(50),
-	Reason VARCHAR(50),
-	PatientID INT(6) UNSIGNED NOT NULL,
-	FOREIGN KEY(PatientID) REFERENCES Patient(PatientID),
-	PRIMARY KEY(MedicationID)
-);
+            (
+	            MedicationID INT(6) UNSIGNED AUTO_INCREMENT,
+                Medicine VARCHAR(50) NOT NULL,
+                Dosage VARCHAR(50) NOT NULL,
+                Indication VARCHAR(50) NOT NULL,
+                Comments VARCHAR(50),
+                DatePrescribed DATE NOT NULL,
+                PatientID INT(6) UNSIGNED NOT NULL,
+                FOREIGN KEY(PatientID) REFERENCES Patient(PatientID),
+                PRIMARY KEY(MedicationID)
+            );
 
-CREATE TABLE Diagnoses
-(
-	DiagnosisID INT(6) UNSIGNED AUTO_INCREMENT,
-	Diagnosis VARCHAR(50) NOT NULL,
-	DateOfOnset DATE NOT NULL,
-	Comments VARCHAR(100),
-	PatientID INT(6) UNSIGNED NOT NULL,
-	FOREIGN KEY(DiagnosisID)
-);
+CREATE TABLE Diagnosis(
+                    DiagnosisID INT(6) UNSIGNED AUTO_INCREMENT,
+                    Diagnosis VARCHAR(50) NOT NULL,
+                    DateOfOnset DATE NOT NULL,
+                    Comments VARCHAR(100),
+                    PatientID INT(6) UNSIGNED NOT NULL,
+                    FOREIGN KEY(PatientID) REFERENCES Patient(PatientID),
+                    PRIMARY KEY(DiagnosisID)
+             );
+             
+             
+CREATE TABLE Immunization(
+                    ImmunizationID INT(6) UNSIGNED AUTO_INCREMENT,
+                    Disease VARCHAR(50) NOT NULL,
+	                Vaccine VARCHAR(50) NOT NULL,
+                    DateImmunized DATE NOT NULL,
+                    PatientID INT(6) UNSIGNED NOT NULL,
+                    FOREIGN KEY(PatientID) REFERENCES Patient(PatientID),
+                    PRIMARY KEY(ImmunizationID)
+                    );

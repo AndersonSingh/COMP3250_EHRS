@@ -85,16 +85,6 @@ CREATE TABLE Medication
 	PRIMARY KEY(MedicationID)
 );
 
-CREATE TABLE Diagnoses
-(
-	DiagnosisID INT(6) UNSIGNED AUTO_INCREMENT,
-	Diagnosis VARCHAR(50) NOT NULL,
-	DateOfOnset DATE NOT NULL,
-	Comments VARCHAR(100),
-	PatientID INT(6) UNSIGNED NOT NULL,
-	FOREIGN KEY(DiagnosisID)
-);
-
 CREATE TABLE MedicationHealthSummary(
 	MedicationID INT(6) UNSIGNED AUTO_INCREMENT,
 	Medicine VARCHAR(50) NOT NULL,

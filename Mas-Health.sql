@@ -67,6 +67,8 @@ CREATE TABLE AdverseReaction
 	Substance VARCHAR(50) NOT NULL,
 	Manifestation VARCHAR(50) NOT NULL,
 	PatientID INT(6) UNSIGNED NOT NULL,
+	EventID INT(6) UNSIGNED DEFAULT NULL,
+	FOREIGN KEY(EventID) REFERENCES Event(EventID),
 	FOREIGN KEY(PatientID) REFERENCES Patient(PatientID),
 	PRIMARY KEY(AdverseReactionID)
 );
@@ -81,6 +83,8 @@ CREATE TABLE Medication
 	Recommendation VARCHAR(50),
 	Reason VARCHAR(50),
 	PatientID INT(6) UNSIGNED NOT NULL,
+	EventID INT(6) UNSIGNED NOT NULL,
+	FOREIGN KEY(EventID) REFERENCES Event(EventID),
 	FOREIGN KEY(PatientID) REFERENCES Patient(PatientID),
 	PRIMARY KEY(MedicationID)
 );
@@ -103,6 +107,8 @@ CREATE TABLE Diagnosis(
     DateOfOnset DATE NOT NULL,
     Comments VARCHAR(100),
     PatientID INT(6) UNSIGNED NOT NULL,
+	EventID INT(6) UNSIGNED DEFAULT NULL,
+	FOREIGN KEY(EventID) REFERENCES Event(EventID),
     FOREIGN KEY(PatientID) REFERENCES Patient(PatientID),
     PRIMARY KEY(DiagnosisID)
     );

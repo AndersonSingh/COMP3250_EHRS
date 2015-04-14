@@ -122,3 +122,13 @@ CREATE TABLE Immunization(
     FOREIGN KEY(PatientID) REFERENCES Patient(PatientID),
     PRIMARY KEY(ImmunizationID)
     );
+
+CREATE TABLE HealthSummary (
+	HealthSummaryID INT(6) UNSIGNED AUTO_INCREMENT,
+	PatientID INT(6) UNSIGNED NOT NULL,
+	DoctorID INT(6) UNSIGNED NOT NULL,
+	DateCreated DATE NOT NULL,
+	FOREIGN KEY (PatientID) REFERENCES Patient(PatientID),
+	FOREIGN KEY (DoctorID) REFERENCES Doctor(DoctorID),
+	PRIMARY KEY(HealthSummaryID)
+);

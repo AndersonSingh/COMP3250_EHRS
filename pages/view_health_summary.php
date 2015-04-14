@@ -1,4 +1,4 @@
-<?php require_once("../includes/database_connection_health_summary.php"); ?>
+<?php require_once("../includes/database_connection.php"); ?>
 <?php require_once("../includes/sessions.php"); ?>
 <?php require_once("../includes/functions.php"); ?>
 <?php

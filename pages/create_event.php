@@ -1,4 +1,4 @@
-<?php require_once("../includes/sessions.php"); ?>
+<?php session_start(); ?>
 <?php require_once("../includes/database_connection.php"); ?>
 <?php require_once("../includes/functions.php"); ?>
 <?php require_once("../includes/validations.php"); ?>

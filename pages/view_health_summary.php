@@ -1,5 +1,5 @@
 <?php require_once("../includes/database_connection.php"); ?>
-<?php require_once("../includes/sessions.php"); ?>
+<?php session_start(); ?>
 <?php require_once("../includes/functions.php"); ?>
 <?php
 	//if(isset($_POST["View Health Summary"])){

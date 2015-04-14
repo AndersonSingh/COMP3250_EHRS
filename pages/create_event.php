@@ -65,11 +65,11 @@
 		
 
 	
-	/*	if(!empty($errors))
+		if(!empty($errors))
 		{
 			$_SESSION["errors"] = $errors;
 			redirect("new_event.php");
-		}*/
+		}
 
 		
 		/* Execute DB Query */

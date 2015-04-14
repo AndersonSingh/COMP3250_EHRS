@@ -131,6 +131,18 @@
                     redirect("create_health_summary.php");
                 }
              }
+			 $Health_Summary_Flag_Patient_Update = "UPDATE PATIENT SET SharedHealthFlag='Y' WHERE patientID= $patientID";
+             $result = mysqli_query($connection,$Health_Summary_Flag_Patient_Update);
+			 if($result)
+			 {
+				 $_SESSION["alert"] .="Patient Information Updated." . "<br>";
+			 }
+			 else
+			 {
+				 $_SESSION["alert"] ="Patient Information Not Updated" . "<br>";
+				 redirect("create_health_summary.php");
+			 }
+			 
 			 //Add information about creation into health summary table.
              $add_health_summary = "INSERT INTO HEALTHSUMMARY (PatientID, DoctorID, DateCreated)";
 			 $add_health_summary .="VALUES ('{$patientID}','{$doctorID}',NOW())";
@@ -139,7 +151,7 @@
              {
                   $_SESSION["alert"] .="Health Summary Info Added to System." . "<br>";
              }
-				else
+			 else
              {
                   $_SESSION["alert"] = "Health Summary Info was not added to system";
                   redirect("create_health_summary.php");

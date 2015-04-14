@@ -230,4 +230,91 @@ function validate_all_has_presences_diagnoses($diagnoses_problem, $diagnoses_ons
 	
 }
 
+function validate_all_has_presences_med($med_name, $med_dosage, $med_clinical, $med_date_prescribed)
+{
+    global $errors;
+    foreach($med_name as $pos => $data)
+    {
+        $med_curr_name = trim($med_name[$pos]);
+        $med_curr_dosage = trim($med_dosage[$pos]);
+        $med_curr_clinical = trim($med_clinical[$pos]);
+        $med_curr_date_prescribed = trim($med_date_prescribed[$pos]);
+        if(!field_has_presence($med_curr_name))
+        {
+            $errors["Medicine Name Problem" . $pos] = "The medication name on row " . ($pos + 1) . " cannot be blank.";
+        }
+        if(!field_has_presence($med_curr_dosage))
+        {
+            $errors["Medicine DOsage Problem " . $pos] = "The medication dosage on row " . ($pos + 1) . " cannot be blank.";
+        }
+        if(!field_has_presence($med_curr_clinical))
+        {
+            $errors["Medicine Clinical Indication Problem " . $pos] = "The medication's clinical indication on row " . ($pos + 1) . " cannot be blank.";
+        }
+        if(!field_has_presence($med_curr_date_prescribed))
+        {
+            $errors["Medicine Date Prescribed Problem " . $pos] = "The medication's date on row " . ($pos + 1) . " cannot be blank.";
+        }
+    }
+}
+
+function validate_all_has_presences_immun($immun_disease,  $immun_vaccine, $immun_date_prescribed)
+{
+    global $errors;
+    foreach($immun_disease as $pos =>$data)
+    {
+        $immun_curr_disease = trim($immun_disease[$pos]);
+        $immun_curr_vaccine = trim($immun_vaccine[$pos]);
+        $immun_curr_date_prescribed = trim($immun_date_prescribed[$pos]);
+        if(!field_has_presence($immun_curr_disease))
+        {
+            $errors["Disease Name Problem" . $pos] = "The disease name on row " . ($pos + 1) . " cannot be blank.";
+        }
+        if(!field_has_presence($immun_curr_vaccine))
+        {
+            $errors["Vaccine Name Problem" . $pos] = "The vaccine name on row " . ($pos + 1) . " cannot be blank.";
+        }
+        if(!field_has_presence($immun_curr_date_prescribed))
+        {
+            $errors["Prescription date Problem" . $pos] = "The prescription date on row " . ($pos + 1) . " cannot be blank.";
+        }
+    }
+}
+
+function validate_all_has_presences_reactions_health_summary($adv_substance, $adv_reaction)
+{
+    global $errors;
+    foreach($adv_substance as $pos =>$data)
+    {
+        $adv_curr_substance = trim ($adv_substance[$pos]);
+        $adv_curr_reaction = trim ($adv_reaction[$pos]);
+        if(!field_has_presence($adv_curr_substance))
+        {
+            $errors["Substance Name Problem" . $pos] = "The substance name on row " . ($pos + 1) . " cannot be blank.";
+        }
+        if(!field_has_presence($adv_curr_reaction))
+        {
+            $errors["Reaction description Problem" . $pos] = "The reaction description on row " . ($pos + 1) . " cannot be blank.";
+        }
+    }
+}
+
+ function validate_all_has_presences_hist($hist_diag, $hist_date)
+ {
+    global $errors;
+     foreach($hist_diag as $pos =>$data)
+     {
+         $hist_curr_diag = trim($hist_diag[$pos]);
+         $hist_curr_date = trim($hist_date[$pos]);
+         if(!field_has_presence($hist_curr_diag))
+         {
+            $errors["Diagnosis Problem" . $pos] = "The diagnosis field on row " . ($pos + 1) . " cannot be blank.";
+         }
+         if(!field_has_presence($hist_curr_date))
+         {
+            $errors["Diagnosis date Problem" . $pos] = "The diagnosis date field on row " . ($pos + 1) . " cannot be blank.";
+         }
+     }
+ }
+
 ?>

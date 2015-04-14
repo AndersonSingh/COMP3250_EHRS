@@ -113,9 +113,9 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $patient_Query = "SELECT FirstName, LastName, DOB, ContactNumber
-                                            FROM Patient
-                                            WHERE patientID=$patientID";
+                                        $doctor_Query = "SELECT FirstName, LastName, Email, ContactNumber
+                                            FROM Doctor
+                                            WHERE doctorID= (SELECT DoctorID FROM HealthSummary WHERE patientID=$patientID)";
                                         $result = mysqli_query($connection,$patient_Query);
                                             if($result->num_rows>0)
                                             {

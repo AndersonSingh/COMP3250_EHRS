@@ -33,9 +33,9 @@ function field_has_date($data)
 	
 	$dateSplit = explode('-', $data);
 	
-	$month = $dateSplit[0];
-	$day   = $dateSplit[1];
-	$year  = $dateSplit[2];
+	$year = $dateSplit[0];
+	$month   = $dateSplit[1];
+	$day  = $dateSplit[2];
 	
 	if(checkdate($month,$day,$year))
 	{

@@ -2,10 +2,8 @@
 <?php session_start(); ?>
 <?php require_once("../includes/functions.php"); ?>
 <?php
-	//if(isset($_POST["View Health Summary"])){
-	//$patientId=$_POST['patientID'];	
-	//}
-    $patientID=1;
+    //$patientID=1;
+	$patientID=$_SESSION["patient_login"];
 ?>
 <!DOCTYPE html>
 <html>

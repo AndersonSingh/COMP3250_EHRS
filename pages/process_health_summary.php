@@ -58,7 +58,7 @@
         $hist_comment = $_POST['hist_comment']; 
         $hist_date = $_POST['hist_date_prescribed'];
         
-        $hist_diag = array_map('prepare_string', $hist_diagnosis);
+        $hist_diag = array_map('prepare_string', $hist_diag);
         $hist_comment = array_map('prepare_string', $hist_comment);
         $hist_date = array_map('prepare_string', $hist_date);
         

@@ -10,11 +10,13 @@
 	*/
 	if(isset($_POST["submit"]))
 	{
-        //For passing of patientID.
+        //For passing of patientID and doctorID
         //$patientID = $_POST['patientID'];
+		 //$patientID = $_POST['doctorID'];
         
         //Remove next line once linked to POST from create document!
         $patientID=1;
+		$doctorID=1;
 
         //PULL DATA FROM MEDICATION TABLE
         $med_name= $_POST['med_medication_name']; 
@@ -129,7 +131,20 @@
                     redirect("create_health_summary.php");
                 }
              }
-            
+			 //Add information about creation into health summary table.
+             $add_health_summary = "INSERT INTO HEALTHSUMMARY (PatientID, DoctorID, DateCreated)";
+			 $add_health_summary .="VALUES ('{$patientID}','{$doctorID}',NOW())";
+			 $result = mysqli_query($connection,$add_health_summary);
+			 if($result)
+             {
+                  $_SESSION["alert"] .="Health Summary Info Added to System." . "<br>";
+             }
+				else
+             {
+                  $_SESSION["alert"] = "Health Summary Info was not added to system";
+                  redirect("create_health_summary.php");
+             }
+				
              redirect("create_health_summary.php");
             
         }  

@@ -76,7 +76,7 @@
                 $result = mysqli_query($connection,$add_Medication_Query);
                 if($result)
                 {
-                    $_SESSION["alert"] ="Rows in Medication table were successfully added.";
+                    $_SESSION["alert"] ="Rows in Medication table were successfully added." . "<br>";
                 }
                 else
                 {
@@ -91,7 +91,7 @@
                 $result = mysqli_query($connection,$add_Immunization_Query);
                 if($result)
                 {
-                    $_SESSION["alert"] ="Rows in Immunization table were successfully added.";
+                    $_SESSION["alert"] .="Rows in Immunization table were successfully added." . "<br>";
                 }
                 else
                 {
@@ -106,7 +106,7 @@
                 $result = mysqli_query($connection,$add_Reaction_Query);
                 if($result)
                 {
-                    $_SESSION["alert"] ="Rows in Adverse Reaction table were successfully added.";
+                    $_SESSION["alert"] .="Rows in Adverse Reaction table were successfully added." . "<br>";
                 }
                 else
                 {
@@ -121,7 +121,7 @@
                 $result = mysqli_query($connection,$add_History_Query);
                 if($result)
                 {
-                    $_SESSION["alert"] ="Rows in Diagnosis table were successfully added.";
+                    $_SESSION["alert"] .="Rows in Diagnosis table were successfully added." . "<br>";
                 }
                 else
                 {

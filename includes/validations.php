@@ -316,5 +316,56 @@ function validate_all_has_presences_reactions_health_summary($adv_substance, $ad
          }
      }
  }
+ 
+ function has_number($data){
+	if(preg_match("/[0-9]+/",$data)){
+		return true;
+	}
+	return false;
+}
+
+function has_special_char($data){
+	if(preg_match("/[^A-Za-z0-9]/",$data)){
+		return true;
+	}
+	return false;
+}
+
+function has_lower_case($data){
+	if(preg_match("/[a-z]+/",$data)){
+		return true;
+	}
+	return false;
+}
+
+function has_upper_case($data){
+	if(preg_match("/[A-Z]+/",$data)){
+		return true;
+	}
+	return false;
+}
+
+function validate_password($field){
+	
+	global $errors;
+	
+	$value = $_POST[$field];
+	
+	if(!has_number($value)){
+		$errors[$field . "_number"] = "Password must contain at least one number.";
+	}
+	
+	if(!has_special_char($value)){
+		$errors[$field . "_symbol"] = 'Password must contain at least one special symbol e.g ~,!,@,#,$,%,^,&,*,(,),etc.';
+	}
+	
+	if(!has_lower_case($value)){
+		$errors[$field . "_lower"] = "Password must contain at least one lower case letter.";
+	}
+	
+	if(!has_upper_case($value)){
+		$errors[$field . "_upper"] = "Password must contain at least one upper case letter.";
+	}
+}
 
 ?>

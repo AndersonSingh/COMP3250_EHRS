@@ -128,7 +128,7 @@
 		else
 		{
 			$_SESSION["alert"] = "Event was not successfully added.";
-			//redirect("doctor_dashboard.php");
+			redirect("doctor_dashboard.php");
 		}
 	}
 	else

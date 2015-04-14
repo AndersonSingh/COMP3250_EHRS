@@ -150,7 +150,7 @@ function validate_all_dates($all_fields)
 		
 		if(!field_has_date($value))
 		{
-			$errors[$current_field] = $current_field . " is not a valid date of birth.";
+			$errors[$current_field] = remove_underscore($current_field) . " is not a valid date of birth.";
 		}
 	}
 }

@@ -9,7 +9,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<title> Add New Doctor </title>
+		<title> Create New Doctor </title>
 		
 		<!-- Bootstrap Core CSS -->
 		<link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -101,7 +101,7 @@
 			
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Add New Doctor</h1>
+                        <h1 class="page-header">Create New Doctor</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>	
@@ -170,6 +170,9 @@
 						</div>
 						
 						<button type="submit" name="submit" class="btn btn-primary">Add New Doctor</button>
+						
+						<br/>
+						<br/>
 						
 						</form>
 					</div>

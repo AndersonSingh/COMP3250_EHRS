@@ -104,7 +104,7 @@
 			
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Add New Admin</h1>
+                        <h1 class="page-header">Create New Admin</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>	
@@ -151,7 +151,10 @@
 								<input type="password" name="confirm_password" class="form-control" placeholder="Re-enter Password">
 							</div>
 							
-							<button type="submit" name="submit" class="btn btn-primary">Create Admin</button>
+							<button type="submit" name="submit" class="btn btn-primary">Add New Admin</button>
+							
+							<br/>
+							<br/>
 								
 						</form>
 					</div>

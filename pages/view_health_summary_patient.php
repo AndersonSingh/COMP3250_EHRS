@@ -1,6 +1,6 @@
 <?php require_once("../includes/database_connection.php"); ?>
-<?php session_start(); ?>
 <?php require_once("../includes/functions.php"); ?>
+<?php require_once('../includes/patient_session.php'); ?>
 <?php
 	$patientID=$_SESSION["patient_login"];
 	

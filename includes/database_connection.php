@@ -9,7 +9,7 @@
 
 $host = "mas-health.com";
 $user = "xoyabepg_admin";
-$pass = "Jack1\$boss";
+$pass = "Jack1$boss";
 $database = "xoyabepg_medical";
 
 /* Attempt to make a connection to the database. */

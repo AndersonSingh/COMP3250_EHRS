@@ -73,7 +73,7 @@
         }
         else{
              foreach($med_name as $pos =>$data){
-                $add_Medication_Query = "INSERT INTO MEDICATION (Medicine , Dosage , Indication , Comments , DatePrescribed , PatientID)";
+                $add_Medication_Query = "INSERT INTO MEDICATIONHEALTHSUMMARY (Medicine , Dosage , Indication , Comments , DatePrescribed , PatientID)";
                 $add_Medication_Query .= "VALUES('{$med_name[$pos]}','{$med_dosage[$pos]}','{$med_clinical[$pos]}','{$med_comments[$pos]}','{$med_date_prescribed[$pos]}' ,'{$patientID}' );"; 
                 $result = mysqli_query($connection,$add_Medication_Query);
                 if($result)

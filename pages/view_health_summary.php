@@ -1,3 +1,4 @@
+<?php require_once('../includes/doctor_session.php'); ?>
 <?php require_once("../includes/database_connection.php"); ?>
 <?php require_once("../includes/functions.php"); ?>
 <?php require_once('../includes/doctor_session.php'); ?>

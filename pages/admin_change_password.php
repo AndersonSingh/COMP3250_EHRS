@@ -135,6 +135,9 @@
 							</div>
 							
 							<button type="submit" name="submit" class="btn btn-primary">Confirm Change Password</button>
+							
+							<br/>
+							<br/>
 					
 						</form>
                 </div>

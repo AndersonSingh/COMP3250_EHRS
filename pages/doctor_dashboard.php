@@ -196,7 +196,7 @@
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">
 									<?php   
-										$num_events_Query = "SELECT eventID FROM Event";
+										$num_events_Query = "SELECT eventID FROM Event WHERE doctorID= $doctorID";
 										$result = mysqli_query($connection, $num_events_Query);
 										$row_cnt = $result ->num_rows;
 										echo $row_cnt;

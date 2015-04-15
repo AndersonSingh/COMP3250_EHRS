@@ -18,6 +18,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link href="../css/styles.css" rel="stylesheet">
+		<link href="../dist/css/sb-admin-2.css" rel="stylesheet">
 	</head>
 	
 	<body>
@@ -27,7 +28,7 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h1 class="text-center">Login</h1>
+						<h1 class="text-center">Patient Login</h1>
 							<?php
 								if(isset($_SESSION["alert"])){
 									echo displayAlert();				

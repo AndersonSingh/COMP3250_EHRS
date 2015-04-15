@@ -19,10 +19,11 @@
 			redirect("new_admin.php");
 		}
 		
+		//This function can be used to clean up data retrieved from a database or from an HTML form.
 		$fName = stripslashes($fName);
 		$lName = stripslashes($lName);
 		$user = stripslashes($user);
-		$pass = stripslashes($pass);						//This function can be used to clean up data retrieved from a database or from an HTML form.
+		$pass = stripslashes($pass);						
 		$pass2 = stripslashes($pass2);
 		
 		$user = mysqli_real_escape_string($connection,$user);		//Escapes special characters in a string for use in an SQL statement
@@ -67,8 +68,8 @@
 		$sql = "INSERT INTO Admin VALUES('$user','$fName','$lName','$pass')";
 		
 		if(mysqli_query($connection, $sql)){
-			$_SESSION["alert"] = "Admin created successfully. You can now signin below.<br/>";
-			redirect("admin_signin.php");
+			$_SESSION["alert"] = "Admin created successfully.<br/>";
+			redirect("new_admin.php");
 		}
 		else{
 			$_SESSION["alert"] = "Failed to create admin!<br/>";

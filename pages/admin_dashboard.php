@@ -1,5 +1,6 @@
 <?php
 	require_once('../includes/admin_session.php');
+	require_once("../includes/database_connection.php"); 
 ?>
 
 <!DOCTYPE html>
@@ -129,14 +130,21 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
-                                    <div>Total Patients</div>
+                                    <div class="huge">
+									<?php   
+										$num_patients_Query = "SELECT patientID FROM Patient";
+										$result = mysqli_query($connection,$num_patients_Query);
+										$row_cnt = $result ->num_rows;
+										echo $row_cnt;
+									?> 
+									</div>
+                                    <div>Total Patients In System</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Total Patients</span>
+                                <span class="pull-left">Total Patients In System</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -151,14 +159,21 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
-                                    <div>Total Doctors</div>
+                                    <div class="huge">
+									<?php   
+										$num_doctors_Query = "SELECT doctorID FROM Doctor";
+										$result = mysqli_query($connection, $num_doctors_Query);
+										$row_cnt = $result ->num_rows;
+										echo $row_cnt;
+									?>
+									</div>
+                                    <div>Total Doctors In System</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Total Doctors</span>
+                                <span class="pull-left">Total Doctors In System</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -173,14 +188,21 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
-                                    <div>Total Events</div>
+                                    <div class="huge">
+									<?php   
+										$num_events_Query = "SELECT eventID FROM Event";
+										$result = mysqli_query($connection, $num_events_Query);
+										$row_cnt = $result ->num_rows;
+										echo $row_cnt;
+									?>
+									</div>
+                                    <div>Total Events In System</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Total Events</span>
+                                <span class="pull-left">Total Events In System</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -195,14 +217,21 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
-                                    <div>Total Discharges</div>
+                                    <div class="huge">
+									<?php   
+										$num_summaries_Query = "SELECT HealthSummaryID FROM HealthSummary";
+										$result = mysqli_query($connection, $num_summaries_Query);
+										$row_cnt = $result ->num_rows;
+										echo $row_cnt;
+									?>
+									</div>
+                                    <div>Total Health Summaries In System</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Total Discharges</span>
+                                <span class="pull-left">Total Health Summaries In System</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>

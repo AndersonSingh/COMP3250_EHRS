@@ -261,7 +261,7 @@
 												<input class="form-control" name="problem[]">
 											</td>
                                             <td>
-												<input class="form-control" name="date[]">
+												<input class="form-control" type ="date" name="date[]">
 											</td>
 											<td>
 												<input class="form-control" name="comment[]">

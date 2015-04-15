@@ -7,10 +7,10 @@
 	$database - This specifies the the database to be used.
 */
 
-$host = "mas-health.com";
-$user = "xoyabepg_admin";
-$pass = "Jack1$boss";
-$database = "xoyabepg_medical";
+$host = "localhost";
+$user = "root";
+$pass = "";
+$database = "medical";
 
 /* Attempt to make a connection to the database. */
 

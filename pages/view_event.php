@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php require_once('../includes/doctor_session.php'); ?>
 <?php require_once("../includes/database_connection.php"); ?>
 <?php require_once("../includes/functions.php"); ?>
 <?php
@@ -6,11 +6,12 @@
 	if(isset($_POST["submit"]))
 	{
 		$EventID = $_POST["eventid"];
+		echo $EventID;
 	}
 	else
 	{
 		$_SESSION["alerts"] = "You must select a event before it can be viewed.";
-		redirect("doctor_dashboard.php");
+		//redirect("doctor_dashboard.php");
 	}
 
 ?>
@@ -53,13 +54,13 @@
 		if(!($diagnosisResult || $medicationResult || $reactionsResult || $SynopsisResult || $doctorResult || $patientResult))
 		{
 					$_SESSION["alert"] = "An Error Occurred While Trying To View The Event.";
-					redirect("doctor_dashboard.php");
+					//redirect("doctor_dashboard.php");
 		}
 	}
 	else
 	{
 		$_SESSION["alert"] = "An Error Occurred While Trying To View The Event.";
-		redirect("doctor_dashboard.php");
+		//redirect("doctor_dashboard.php");
 	}
 
 

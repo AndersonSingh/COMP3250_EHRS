@@ -114,7 +114,7 @@
 		
 		$event_add_btn = "<button form='build_search' type='submit' name='submit' formaction='new_event.php' formmethod='post' class='btn btn-primary btn-lg btn-block'>Add Event</button>";
 		
-		$event_view_btn = "<button form='build_search' type='submit' name='submit' formaction='view_event.php' formmethod='post' class='btn btn-primary btn-lg btn-block'>View Events</button>";
+		$event_view_btn = "<button form='build_search' type='submit' name='submit' formaction='choose_event.php' formmethod='post' class='btn btn-primary btn-lg btn-block'>View Events</button>";
 		
 		$output .= $form_open;
 		$output .= $pass_hidden_id;

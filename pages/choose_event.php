@@ -3,7 +3,7 @@
 	require_once('../includes/database_connection.php');
 ?>
 <?php
-	$PatientID = 2; 
+	$PatientID = $_POST["patient_id"]; 
 	
 	$eventsQuery = "SELECT * FROM Event WHERE PatientID=$PatientID";
 	$eventsResult = mysqli_query($connection,$eventsQuery);

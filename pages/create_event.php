@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php require_once('../includes/doctor_session.php'); ?>
 <?php require_once("../includes/database_connection.php"); ?>
 <?php require_once("../includes/functions.php"); ?>
 <?php require_once("../includes/validations.php"); ?>
@@ -12,8 +12,11 @@
 		$synopsis = mysqli_real_escape_string($connection,$_POST["synopsis"]);
 		
 		/* when joining get this from post. */
-		$PatientID = 1; 
-		$DoctorID = 1;
+		$PatientID = $_POST["PatientID"]; 
+		$DoctorID = $_SESSION["doctor_login"];
+		
+		echo $PatientID . "<br/>";
+		echo $DoctorID. "<br/>";
 		
 		/* prepare data for the adverse reactions */
 		$reaction_substances  = $_POST["substance"];
@@ -130,6 +133,7 @@
 			$_SESSION["alert"] = "Event was not successfully added.";
 			redirect("doctor_dashboard.php");
 		}
+		
 	}
 	else
 	{

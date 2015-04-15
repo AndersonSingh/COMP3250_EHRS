@@ -44,7 +44,8 @@
 <body>
 
     <div id="wrapper">
-
+		
+		
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -124,7 +125,17 @@
 			
 			<div class="row">
 			<form action="create_event.php" method="post">
-			
+				<?php
+				if(isset($_POST['patient_id']))
+				{
+				$temp = $_POST['patient_id'];
+				echo $temp . "<br/> ". $_SESSION['doctor_login'];
+				
+				
+				echo "<input type=\"hidden\" name=\"PatientID\" value=$temp >";
+				}
+				?>
+				
 				<div class="col-lg-12">
 					<div class="panel panel-primary">
 						<div class="panel-heading">

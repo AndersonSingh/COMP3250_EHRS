@@ -182,7 +182,7 @@
 								
 								echo "</tbody>";
 								echo "</table>";
-								echo "<form action=\"view_event.php\" method=\"POST\">";
+								echo "<form action=\"view_event_patient.php\" method=\"POST\">";
 								echo "<input type=\"hidden\" name=\"eventid\" value=$event_id>";
 								echo "<button type=\"submit\" class=\"btn btn-primary\" name=\"submit\">View This Event</button>";
 								echo "</form>";

@@ -58,12 +58,14 @@
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="doctor_details.php"><i class="fa fa-user fa-fw"></i> User Details</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+						<li><a href="update_doctor_details.php"><i class="fa fa-user fa-fw"></i>Edit User Details</a>
+                        </li>
+                        <li><a href="doctor_change_password.php"><i class="fa fa-gear fa-fw"></i> Change Password</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -75,13 +77,13 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="doctor_dashboard.html"><i class="fa fa-dashboard fa-fw"></i>Doctor Dashboard</a>
+                            <a href="doctor_dashboard.php"><i class="fa fa-dashboard fa-fw"></i>Doctor Dashboard</a>
                         </li>
                         <li>
-                            <a href="tables.html"><i class="fa fa-table fa-fw"></i>Search Patients</a>
+                            <a href="patient_search.php"><i class="fa fa-table fa-fw"></i>Search Patients</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i>View All Patients</a>
+                            <a href="view_all_patients.php"><i class="fa fa-edit fa-fw"></i>View All Patients</a>
                         </li>
                     </ul>
                 </div>

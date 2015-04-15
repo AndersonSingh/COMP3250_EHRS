@@ -275,10 +275,10 @@
 												<input class="form-control"  name="hist_diagnosis[]">
 											</td>
                                             <td>
-												<input class="form-control" type="date" name="hist_comment[]">
+												<input class="form-control" type="date" name="hist_date_prescribed[]">
 											</td>
                                             <td>
-												<input class="form-control" name="hist_date_prescribed[]">
+												<input class="form-control" name="hist_comment[]">
 											</td>
                                         </tr>
                                     </tbody>

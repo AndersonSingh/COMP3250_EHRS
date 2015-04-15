@@ -12,10 +12,10 @@
 	$doctor_Query = "SELECT FirstName, LastName, Email, ContactNumber
                     FROM Doctor
                     WHERE doctorID= (SELECT DoctorID FROM HealthSummary WHERE patientID=$patientID)";
-    $result_doctor = mysqli_query($connection,$patient_Query);
+    $result_doctor = mysqli_query($connection,$doctor_Query);
 	
 	$medication_Query = "SELECT Medicine , Dosage , Indication , Comments , DatePrescribed
-						FROM Medication
+						FROM MEDICATIONHEALTHSUMMARY
 						WHERE patientID=$patientID;";
 	$result_medication = mysqli_query($connection,$medication_Query);
 	

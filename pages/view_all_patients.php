@@ -12,7 +12,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<title>Update Details</title>
+		<title>View Patients</title>
 		
 		<!-- Bootstrap Core CSS -->
 		<link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -110,9 +110,16 @@
 				<!-- /.row -->	
                 </div>				
 				
-				<?php
-					echo view_all_patients();
-				?>
+				<div class="row">
+					<div class="col-lg-12">
+						<?php
+						
+							echo view_all_patients();
+						
+						?>
+					
+					</div>
+                </div>
             </div>
             <!-- /.container-fluid -->
         </div>

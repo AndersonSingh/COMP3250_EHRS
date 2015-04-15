@@ -139,13 +139,17 @@
                 </div>
                 <!-- /.row -->
 				
+				<br/>
+				<br/>
+				
 				<div class="row">
-					<div class="col-lg-6">
+					<div class="col-lg-12">
 						<?php
-						if(isset($_SESSION["search_display"])){
-							echo search_display();
-						}				
-					?>
+							if(isset($_SESSION["search_display"])){
+								echo patient_details();
+								echo search_display();
+							}				
+						?>
                     </div>
 				</div>
             </div>

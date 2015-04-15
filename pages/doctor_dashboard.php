@@ -108,6 +108,19 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+			
+			<?php 
+				
+					if(isset($_SESSION["alert"])){
+						echo displayAlert();
+					}
+								
+					if(isset($_SESSION["errors"])){
+						echo displayErrors();
+					}
+				
+			?>
+			
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-3 col-md-6">

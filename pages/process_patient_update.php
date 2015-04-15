@@ -41,9 +41,9 @@
 		
 		$id = $_SESSION["patient_login"];
 		
-		$updatePatientQuery = "UPDATE Patient SET FirstName='$firstName', LastName='$lastName', ContactNumber='$phone', ";
+		$updatePatientQuery = "UPDATE Patient SET LastName='$lastName', ContactNumber='$phone', ";
 		$updatePatientQuery .= "EmergencyContactName='$emergencyName', EmergencyContactNumber='$emergencyPhone', AddressLine1='$addressLine1', ";
-		$updatePatientQuery .= "AddressLine2='$addressLine2', City='$city', Email='$email' WHERE PatientID='$id'";
+		$updatePatientQuery .= "AddressLine2='$addressLine2', City='$city' WHERE PatientID='$id'";
 		
 		$result = mysqli_query($connection,$updatePatientQuery);
 		

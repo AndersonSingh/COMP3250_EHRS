@@ -1,6 +1,11 @@
 <?php
 	require_once('../includes/doctor_session.php');
+	require_once("../includes/database_connection.php"); 
 ?>
+
+<?php   
+	$doctorID=$_SESSION["doctor_login"];
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -131,7 +136,14 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
+                                    <div class="huge"> 
+									<?php   
+										$num_patients_Query = "SELECT patientID FROM Patient";
+										$result = mysqli_query($connection,$num_patients_Query);
+										$row_cnt = $result ->num_rows;
+										echo $row_cnt;
+									?> 
+									</div>
                                     <div>Total Patients</div>
                                 </div>
                             </div>
@@ -153,7 +165,14 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
+                                    <div class="huge">
+									<?php   
+										$num_doctors_Query = "SELECT doctorID FROM Doctor";
+										$result = mysqli_query($connection, $num_doctors_Query);
+										$row_cnt = $result ->num_rows;
+										echo $row_cnt;
+									?>
+									</div>
                                     <div>Total Doctors</div>
                                 </div>
                             </div>
@@ -175,7 +194,14 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
+                                    <div class="huge">
+									<?php   
+										$num_events_Query = "SELECT eventID FROM Event";
+										$result = mysqli_query($connection, $num_events_Query);
+										$row_cnt = $result ->num_rows;
+										echo $row_cnt;
+									?>
+									</div>
                                     <div>Total Events</div>
                                 </div>
                             </div>
@@ -197,14 +223,21 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
-                                    <div>Total Discharges</div>
+                                    <div class="huge">
+									<?php   
+										$num_summaries_Query = "SELECT patientID FROM HealthSummary WHERE doctorID= $doctorID";
+										$result = mysqli_query($connection, $num_summaries_Query);
+										$row_cnt = $result ->num_rows;
+										echo $row_cnt;
+									?>
+									</div>
+                                    <div>Total Health Summaries</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Total Discharges</span>
+                                <span class="pull-left">Total Health Summaries</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>

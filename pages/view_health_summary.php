@@ -2,6 +2,41 @@
 <?php session_start(); ?>
 <?php require_once("../includes/functions.php"); ?>
 <?php
+	$patient_Query = "SELECT FirstName, LastName, DOB, ContactNumber
+					  FROM Patient
+					  WHERE patientID=$patientID";
+	$result_patient = mysqli_query($connection,$patient_Query);
+
+	$doctor_Query = "SELECT FirstName, LastName, Email, ContactNumber
+                    FROM Doctor
+                    WHERE doctorID= (SELECT DoctorID FROM HealthSummary WHERE patientID=$patientID)";
+    $result_doctor = mysqli_query($connection,$patient_Query);
+	
+	$medication_Query = "SELECT Medicine , Dosage , Indication , Comments , DatePrescribed
+						FROM Medication
+						WHERE patientID=$patientID;";
+	$result_medication = mysqli_query($connection,$medication_Query);
+	
+	$immunization_Query = "SELECT Disease , Vaccine , DateImmunized
+						  FROM Immunization
+						  WHERE patientID=$patientID;";
+	$result_immunization = mysqli_query($connection,$immunization_Query);
+	
+	$adverse_Reaction_Query = "SELECT Substance , Manifestation
+							  FROM AdverseReaction
+							  WHERE patientID=$patientID;";
+	$result_adverse = mysqli_query($connection,$adverse_Reaction_Query);
+	
+	$diagnosis_Query = "SELECT Diagnosis, DateOfOnset, Comments
+					   FROM Diagnosis
+					   WHERE patientID=$patientID;";
+	$result_diagnose = mysqli_query($connection,$diagnosis_Query);
+	
+	if(!$result_patient || !$result_doctor || !$result_medication || !$result_immunization || !$result_adverse || !$result_diagnose)
+	{
+		$_SESSION["alert"] = "There was a problem retrieving data for this patient";
+        redirect("doctor_dashboard.php");
+	}
     //$patientID=1;
 	$patientID=$_SESSION["patient_login"];
 ?>
@@ -111,13 +146,9 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $doctor_Query = "SELECT FirstName, LastName, Email, ContactNumber
-                                            FROM Doctor
-                                            WHERE doctorID= (SELECT DoctorID FROM HealthSummary WHERE patientID=$patientID)";
-                                        $result = mysqli_query($connection,$patient_Query);
-                                            if($result->num_rows>0)
+                                            if($result_patient->num_rows>0)
                                             {
-                                                while($row = $result->fetch_assoc())
+                                                while($row = $result_patient->fetch_assoc())
                                                 {
                                                     echo "<tr>";
 
@@ -171,13 +202,9 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $doctor_Query = "SELECT FirstName, LastName, Email, ContactNumber
-                                            FROM Doctor
-                                            WHERE doctorID=SELECT doctorID FROM Patient WHERE patientID=$patientID";
-                                        $result = mysqli_query($connection,$doctor_Query);
-                                            if($result->num_rows>0)
+                                            if($result_doctor->num_rows>0)
                                             {
-                                                while($row = $result->fetch_assoc())
+                                                while($row = $result_doctor->fetch_assoc())
                                                 {
                                                     echo "<tr>";
 
@@ -236,13 +263,9 @@
 
                                     <tbody>
                                         <?php
-                                            $medication_Query = "SELECT Medicine , Dosage , Indication , Comments , DatePrescribed
-                                            FROM Medication
-                                            WHERE patientID=$patientID;";
-                                            $result = mysqli_query($connection,$medication_Query);
-                                            if($result->num_rows>0)
+                                            if($result_medication->num_rows>0)
                                             {
-                                                while($row = $result->fetch_assoc())
+                                                while($row = $result_medication->fetch_assoc())
                                                 {
                                                     echo "<tr>";
 
@@ -300,13 +323,9 @@
                                       </tr>
 
                                     <?php
-                                            $immunization_Query = "SELECT Disease , Vaccine , DateImmunized
-                                            FROM Immunization
-                                            WHERE patientID=$patientID;";
-                                            $result = mysqli_query($connection,$immunization_Query);
-                                            if($result->num_rows>0)
+                                            if($result_immunization->num_rows>0)
                                             {
-                                                while($row = $result->fetch_assoc())
+                                                while($row = $result_immunization->fetch_assoc())
                                                 {
                                                         echo "<tr>";
 
@@ -355,13 +374,9 @@
                                       </tr>
 
                                     <?php
-                                            $adverse_Reaction_Query = "SELECT Substance , Manifestation
-                                            FROM AdverseReaction
-                                            WHERE patientID=$patientID;";
-                                            $result = mysqli_query($connection,$adverse_Reaction_Query);
-                                            if($result->num_rows>0)
+                                            if($result_adverse->num_rows>0)
                                             {
-                                                while($row = $result->fetch_assoc())
+                                                while($row = $result_adverse->fetch_assoc())
                                                 {
                                                         echo "<tr>";
 
@@ -408,13 +423,9 @@
                                       </tr>
 
                                     <?php
-                                            $diagnosis_Query = "SELECT Diagnosis, DateOfOnset, Comments
-                                            FROM Diagnosis
-                                            WHERE patientID=$patientID;";
-                                            $result = mysqli_query($connection,$diagnosis_Query);
-                                            if($result->num_rows>0)
+                                            if($result_diagnose->num_rows>0)
                                             {
-                                                while($row = $result->fetch_assoc())
+                                                while($row = $result_diagnose->fetch_assoc())
                                                 {
                                                         echo "<tr>";
 

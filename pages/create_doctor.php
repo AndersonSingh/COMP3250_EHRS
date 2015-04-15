@@ -52,14 +52,14 @@
         //Prepare notification email.
         
 		$to = $email;
-		$subject = 'MAS-HEALTH Doctor Account';
+		$subject = 'Mas-Health Doctor Account';
 		$message = 'Hi, Dr. ' . $lastName . '! Your account has been successfully created. ';
 		$message .= 'Please login at the link below using the following password: ' . $rand_pass . ".\n\n";
 		$message .= 'matthewtestgame.host56.com/public/doctor_signin.php';
 		$message .= "\n\n" . 'Please change your password as soon as you login!' . "\n";
 		$message .= "\n" . 'Regards';
 		$message .= "\n\n" . '*****This is an automatically generated message. Please do not reply to this e-mail as your message will not be received.*****';
-		$headers  = 'From: MAS-HEALTH <mas-health.com>' . "\r\n";
+		$headers  = 'From: Mas-Health <mas-health.com>' . "\r\n";
 			//		'MIME-Version: 1.0' . "\r\n" .					// setting content-type in order to send emails with html tags.
 			//		'Content-type: text/html; charset=utf-8';
 		

@@ -66,12 +66,12 @@
 					$firstName = $row["FirstName"];
 					
 					$to = $email;
-					$subject = 'MAS-HEALTH Password Change';
+					$subject = 'Mas-Health Password Change';
 					$message = 'Hi, ' . $firstName . '! Your password has been successfully changed.' . "\n\n";
 					$message .= 'If this was not done by you please contact us immediately!' . "\n";
 					$message .= "\n" . 'Regards';
 					$message .= "\n\n" . '*****This is an automatically generated message. Please do not reply to this e-mail as your message will not be received.*****';
-					$headers  = 'From: MAS-HEALTH <mas-health.com>' . "\r\n";
+					$headers  = 'From: Mas-Health <mas-health.com>' . "\r\n";
 						//		'MIME-Version: 1.0' . "\r\n" .					// setting content-type in order to send emails with html tags.
 						//		'Content-type: text/html; charset=utf-8';
 						

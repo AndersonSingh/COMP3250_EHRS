@@ -55,14 +55,14 @@
 					$lastName = $row["LastName"];	
 					
 					$to = $user;
-					$subject = 'MAS-HEALTH Reset Password';
+					$subject = 'Mas-Health Password Reset';
 					$message = 'Hi, Dr. ' . $lastName . '! Your password has been successfully reset. ' . "\n\n";
 					$message .= 'Your new password is ' . $rand_pass . ".\n\n";
 					$message .= 'You can login at the following link:' . "\n" . 'matthewtestgame.host56.com/public/patient_signin.php';
 					$message .= "\n\n" . 'Please change your password as soon as you login!' . "\n";
 					$message .= "\n" . 'Regards';
 					$message .= "\n\n" . '*****This is an automatically generated message. Please do not reply to this e-mail as your message will not be received.*****';
-					$headers  = 'From: MAS-HEALTH <mas-health.com>' . "\r\n";
+					$headers  = 'From: Mas-Health <mas-health.com>' . "\r\n";
 						//		'MIME-Version: 1.0' . "\r\n" .					// setting content-type in order to send emails with html tags.
 						//		'Content-type: text/html; charset=utf-8';
 					

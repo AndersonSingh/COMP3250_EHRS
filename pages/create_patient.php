@@ -52,14 +52,14 @@
 		//Prepare notification email.
         
 		$to = $email;
-		$subject = 'MAS-HEALTH Patient Account';
+		$subject = 'Mas-Health Patient Account';
 		$message = 'Hi, ' . $firstName . '! Your patient account has been successfully created. ';
 		$message .= 'Please login at the link below using the following password: ' . $rand_pass . ".\n\n";
 		$message .= 'matthewtestgame.host56.com/public/patient_signin.php';
 		$message .= "\n\n" . 'Please change your password as soon as you login!' . "\n";
 		$message .= "\n" . 'Regards';
 		$message .= "\n\n" . '*****This is an automatically generated message. Please do not reply to this e-mail as your message will not be received.*****';
-		$headers  = 'From: MAS-HEALTH <mas-health.com>' . "\r\n";
+		$headers  = 'From: Mas-Health <mas-health.com>' . "\r\n";
 			//		'MIME-Version: 1.0' . "\r\n" .					// setting content-type in order to send emails with html tags.
 			//		'Content-type: text/html; charset=utf-8';
 
@@ -72,13 +72,13 @@
 		if($result)
 		{
 			(mail($to, $subject, $message, $headers));						// send notification email
-			$_SESSION["alert"] ="Patient was successfully added.";
+			$_SESSION["alert"] = "Patient was successfully added.";
 			redirect("new_patient.php");
 		}
 		else
 		{
 			$_SESSION["alert"] = "Patient was not successfully added.";
-			redirect("doctor_panel.php");
+			redirect("new_patient.php");
 		}
 		
 	}

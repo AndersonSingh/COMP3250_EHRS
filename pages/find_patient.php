@@ -38,10 +38,9 @@
 					$event = 1;
 				
 				$_SESSION["search_display"] = build_search_display($summary, $event, $id);
-				
-				if(isset($_SESSION["search_display"])){ 
-					$_SESSION["patient_searched"] = $id;
-				}
+
+				$_SESSION["patient_searched"] = $id;
+		
 				redirect("patient_search.php");
 			}
 			

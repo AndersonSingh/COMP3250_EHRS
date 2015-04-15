@@ -88,7 +88,7 @@
                             <a href="patient_dashboard.php"><i class="fa fa-dashboard fa-fw"></i>Patient Dashboard</a>
                         </li>
                         <li>
-                            <a href="view_health_sum.php"><i class="fa fa-table fa-fw"></i>View Health Summary</a>
+                            <a href="view_health_summary.php"><i class="fa fa-table fa-fw"></i>View Health Summary</a>
                         </li>
                         <li>
                             <a href="view_events.php"><i class="fa fa-edit fa-fw"></i>View Events</a>
@@ -123,7 +123,7 @@
 				?>
 				
 				<div class="row">
-					<div class="col-lg-6">
+					<div class="col-lg-12">
 						<?php
 						
 						echo display_patient_details();

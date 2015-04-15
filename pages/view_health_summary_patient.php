@@ -1,7 +1,6 @@
 <?php require_once('../includes/patient_session.php'); ?>
 <?php require_once("../includes/database_connection.php"); ?>
 <?php require_once("../includes/functions.php"); ?>
-<?php require_once('../includes/patient_session.php'); ?>
 <?php
 	$patientID=$_SESSION["patient_login"];
 	
@@ -44,6 +43,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		
 		<title> View Health Summary </title>
         <!-- Bootstrap Core CSS -->
         <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -83,9 +89,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+                <a class="navbar-brand" href="index.html">Electronic Health Record System v1.0</a>
             </div>
             <!-- /.navbar-header -->
+
             <ul class="nav navbar-top-links navbar-right">
 			
                 <li class="dropdown">
@@ -462,5 +469,21 @@
 		  </div>
         </div>
 		
+		<!-- jQuery -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../bower_components/raphael/raphael-min.js"></script>
+    <script src="../bower_components/morrisjs/morris.min.js"></script>
+    <script src="../js/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
 	</body>
 </html>

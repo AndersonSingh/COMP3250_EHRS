@@ -193,11 +193,11 @@
             $output .= "</thead>";
             $output .= "<tbody>";
             $output .= "<tr>";
-            $output .= "<td>'$firstName'</td>";
-            $output .= "<td>'$lastName'</td>";
-            $output .= "<td>'$phone'</td>";
-            $output .= "<td>'$mail'</td>";
-			$output .= "<td>'$dob'</td>";
+            $output .= "<td>$firstName</td>";
+            $output .= "<td>$lastName</td>";
+            $output .= "<td>$phone</td>";
+            $output .= "<td>$mail</td>";
+			$output .= "<td>$dob</td>";
             $output .= "</tr>";
             $output .= "</tbody>";
 			$output .= "</table>";
@@ -221,9 +221,9 @@
             $output .= "</thead>";
             $output .= "<tbody>";
             $output .= "<tr>";
-            $output .= "<td>'$addr1'</td>";
-            $output .= "<td>'$addr2'</td>";
-            $output .= "<td>'$city'</td>";
+            $output .= "<td>$addr1</td>";
+            $output .= "<td>$addr2</td>";
+            $output .= "<td>$city</td>";
             $output .= "</tr>";
             $output .= "</tbody>";
             $output .= "</table>";
@@ -234,6 +234,8 @@
 			$output .= "<form id='update'> </form>";
 			
 			$output .= "<button form='update' formaction='update_doctor_details.php' type='submit' class='btn btn-primary btn-lg'>Update Details</button>";
+			
+			$output .= "<br/><br/>";
 			
 			return $output;
 		}
@@ -260,6 +262,7 @@
 			$output .= "<table class='table table-striped table-bordered table-hover'>";
             $output .= "<thead>";
             $output .= "<tr>";
+			$output .= "<th>Patient ID</th>";
             $output .= "<th>First Name</th>";
             $output .= "<th>Last Name</th>";
             $output .= "<th>Telephone Contact Number</th>";
@@ -276,6 +279,7 @@
 			
 			while($row = mysqli_fetch_assoc($result)){
 				
+				$patientID = $row["PatientID"];
 				$firstName = $row["FirstName"];	
 				$lastName = $row["LastName"];	
 				$phone = $row["ContactNumber"];	
@@ -300,16 +304,17 @@
 				}
 				
 				$output .= "<tr>";
-				$output .= "<td>'$firstName'</td>";
-				$output .= "<td>'$lastName'</td>";
-				$output .= "<td>'$phone'</td>";
-				$output .= "<td>'$mail'</td>";
-				$output .= "<td>'$dob'</td>";
-				$output .= "<td>'$emerName'</td>";
-				$output .= "<td>'$emerPhone'</td>";
-				$output .= "<td>'$addr1'</td>";
-				$output .= "<td>'$addr2'</td>";
-				$output .= "<td>'$city'</td>";
+				$output .= "<td>$patientID</td>";
+				$output .= "<td>$firstName</td>";
+				$output .= "<td>$lastName</td>";
+				$output .= "<td>$phone</td>";
+				$output .= "<td>$mail</td>";
+				$output .= "<td>$dob</td>";
+				$output .= "<td>$emerName</td>";
+				$output .= "<td>$emerPhone</td>";
+				$output .= "<td>$addr1</td>";
+				$output .= "<td>$addr2</td>";
+				$output .= "<td>$city</td>";
 				$output .= "</tr>";
 			}
 		
@@ -318,6 +323,8 @@
             $output .= "</div>";
             $output .= "</div>";
             $output .= "</div>";
+			
+			$output .= "<br/><br/>";
 							
 			return $output;
 		}
@@ -406,7 +413,9 @@
 			$output .= "</div>";
 			$output .= "</form>";
 			$output .= "</div>";
-							
+			
+			$output .= "<br/><br/>";
+			
 			$output .= "</div>";
 			
 			return $output;
@@ -418,7 +427,20 @@
 		
 		global $connection;
 		
-		$id = $_SESSION["patient_login"];
+		// if a patient is currently signed in
+		if(isset($_SESSION["patient_login"])){
+			$id = $_SESSION["patient_login"];
+			// a view type of 1 means this is a call to view a patient's details from a signed in patient
+			$viewType = 1;
+		}
+		
+		// call to view patient details comes from a doctor that has just searched and found a patient
+		else{
+			$id = $_SESSION["patient_searched"];
+			$viewType = 2;
+		}
+		
+		
 		
 		$sql = "SELECT * FROM Patient WHERE PatientID='$id';";
 		
@@ -468,11 +490,11 @@
             $output .= "</thead>";
             $output .= "<tbody>";
             $output .= "<tr>";
-            $output .= "<td>'$firstName'</td>";
-            $output .= "<td>'$lastName'</td>";
-            $output .= "<td>'$phone'</td>";
-            $output .= "<td>'$mail'</td>";
-			$output .= "<td>'$dob'</td>";
+            $output .= "<td>$firstName</td>";
+            $output .= "<td>$lastName</td>";
+            $output .= "<td>$phone</td>";
+            $output .= "<td>$mail</td>";
+			$output .= "<td>$dob</td>";
             $output .= "</tr>";
             $output .= "</tbody>";
 			$output .= "</table>";
@@ -495,8 +517,8 @@
             $output .= "</thead>";
             $output .= "<tbody>";
             $output .= "<tr>";
-            $output .= "<td>'$emerName'</td>";
-            $output .= "<td>'$emerPhone'</td>";
+            $output .= "<td>$emerName</td>";
+            $output .= "<td>$emerPhone</td>";
             $output .= "</tr>";
             $output .= "</tbody>";
             $output .= "</table>";
@@ -520,9 +542,9 @@
             $output .= "</thead>";
             $output .= "<tbody>";
             $output .= "<tr>";
-            $output .= "<td>'$addr1'</td>";
-            $output .= "<td>'$addr2'</td>";
-            $output .= "<td>'$city'</td>";
+            $output .= "<td>$addr1</td>";
+            $output .= "<td>$addr2</td>";
+            $output .= "<td>$city</td>";
             $output .= "</tr>";
             $output .= "</tbody>";
             $output .= "</table>";
@@ -530,9 +552,13 @@
             $output .= "</div>";
             $output .= "</div>";
 			
-			$output .= "<form id='update'> </form>";
+			if($viewType == 1){
+				$output .= "<form id='update'> </form>";
 			
-			$output .= "<button form='update' formaction='update_patient_details.php' type='submit' class='btn btn-primary btn-lg'>Update Details</button>";
+				$output .= "<button form='update' formaction='update_patient_details.php' type='submit' class='btn btn-primary btn-lg'>Update Details</button>";
+			}
+			
+			$output .= "<br/><br/>";
 			
 			return $output;
 		}
@@ -650,6 +676,8 @@
 			
 			$output .= "</form>";
 			$output .= "</div>";
+							
+			$output .= "<br/><br/>";
 							
 			$output .= "</div>";
 			

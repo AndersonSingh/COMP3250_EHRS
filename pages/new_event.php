@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php require_once('../includes/doctor_session.php'); ?>
 <?php require_once("../includes/functions.php"); ?>
 
 <!DOCTYPE html>

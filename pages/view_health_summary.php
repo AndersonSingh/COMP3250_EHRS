@@ -2,6 +2,8 @@
 <?php session_start(); ?>
 <?php require_once("../includes/functions.php"); ?>
 <?php
+	$patientID=$_SESSION["patient_login"];
+	
 	$patient_Query = "SELECT FirstName, LastName, DOB, ContactNumber
 					  FROM Patient
 					  WHERE patientID=$patientID";
@@ -37,8 +39,6 @@
 		$_SESSION["alert"] = "There was a problem retrieving data for this patient";
         redirect("doctor_dashboard.php");
 	}
-    //$patientID=1;
-	$patientID=$_SESSION["patient_login"];
 ?>
 <!DOCTYPE html>
 <html>

@@ -1,11 +1,6 @@
 <?php
 	require_once('../includes/patient_session.php');
-	require_once("../includes/database_connection.php"); 
 ?>
-
-<?php   
-	$patientID=$_SESSION["patient_login"];
-?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -136,18 +131,14 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">
-									<?php
-										echo $patientID;
-									?>
-									</div>
-                                    <div>Patient ID</div>
+                                    <div class="huge">26</div>
+                                    <div>Total Patients</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Patient ID</span>
+                                <span class="pull-left">Total Patients</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -162,23 +153,14 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">
-									<?php   
-										$num_doctors_Query = "SELECT doctorID FROM HealthSummary WHERE patientID= $patientID";
-										$result = mysqli_query($connection, $num_doctors_Query);
-										$num_doctors_Query2 = "SELECT DISTINCT doctorID FROM Event WHERE patientID= $patientID";
-										$result2 = mysqli_query($connection, $num_doctors_Query2);
-										$row_cnt = $result ->num_rows + $result2 ->num_rows;
-										echo $row_cnt;
-									?>
-									</div>
-                                    <div>Total Doctors Associated To</div>
+                                    <div class="huge">12</div>
+                                    <div>Total Doctors</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Total Doctors Associated To</span>
+                                <span class="pull-left">Total Doctors</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -193,14 +175,7 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">
-									<?php   
-										$num_events_Query = "SELECT eventID FROM Event WHERE patientID= $patientID";
-										$result = mysqli_query($connection, $num_events_Query);
-										$row_cnt = $result ->num_rows;
-										echo $row_cnt;
-									?>
-									</div>
+                                    <div class="huge">124</div>
                                     <div>Total Events</div>
                                 </div>
                             </div>
@@ -222,24 +197,14 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">
-									<?php
-										$hsflag_patients_Query = "SELECT SharedHealthFlag FROM Patient WHERE patientID=$patientID";
-										$result = mysqli_query($connection,$hsflag_patients_Query);
-										$row = $result->fetch_assoc();
-										if($row["SharedHealthFlag"]=='Y')
-											echo "Yes";
-										else
-											echo "No";
-									?>
-									</div>
-                                    <div>Health Summary Exists?</div>
+                                    <div class="huge">13</div>
+                                    <div>Total Discharges</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Health Summary Exists?</span>
+                                <span class="pull-left">Total Discharges</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>

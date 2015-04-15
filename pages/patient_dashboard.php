@@ -223,7 +223,7 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">
-									<?
+									<?php
 										$hsflag_patients_Query = "SELECT SharedHealthFlag FROM Patient WHERE patientID=$patientID";
 										$result = mysqli_query($connection,$hsflag_patients_Query);
 										$row = $result->fetch_assoc();

@@ -8,9 +8,9 @@
 */
 
 $host = "localhost";
-$user = "root";
-$pass = "";
-$database = "medical";
+$user = "xoyabepg_admin";
+$pass = "password!";
+$database = "xoyabepg_medical";
 
 /* Attempt to make a connection to the database. */
 

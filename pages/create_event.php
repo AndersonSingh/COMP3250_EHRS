@@ -68,12 +68,12 @@
 		
 
 	
-		if(!empty($errors))
+		/*if(!empty($errors))
 		{
 			$_SESSION["errors"] = $errors;
 			redirect("new_event.php");
 		}
-
+		*/
 		
 		/* Execute DB Query */
 		
@@ -85,12 +85,14 @@
 		
 		/* add event to db */
 		
-		$addEventQuery = "INSERT INTO EVENT(PatientID, DoctorID, EventDate, Synopsis) ";
+		$addEventQuery = "INSERT INTO Event(PatientID, DoctorID, EventDate, Synopsis) ";
 		$addEventQuery .= " VALUES ('{$PatientID}', '{$DoctorID}', NOW(), '{$synopsis}')";
 		
 		$result = mysqli_query($connection,$addEventQuery);
+		
+
 		$currentEventID =  mysqli_insert_id($connection);
-		echo $currentEventID;
+
 		/* add reactions to db */
 
 		foreach($reaction_substances as $key => $data)
@@ -133,7 +135,7 @@
 			$_SESSION["alert"] = "Event was not successfully added.";
 			redirect("doctor_dashboard.php");
 		}
-		
+
 	}
 	else
 	{

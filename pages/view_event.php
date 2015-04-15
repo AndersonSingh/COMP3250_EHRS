@@ -6,7 +6,7 @@
 	if(isset($_POST["submit"]))
 	{
 		$EventID = $_POST["eventid"];
-		echo $EventID;
+
 	}
 	else
 	{

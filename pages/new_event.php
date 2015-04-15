@@ -129,7 +129,6 @@
 				if(isset($_POST['patient_id']))
 				{
 				$temp = $_POST['patient_id'];
-				echo $temp . "<br/> ". $_SESSION['doctor_login'];
 				
 				
 				echo "<input type=\"hidden\" name=\"PatientID\" value=$temp >";

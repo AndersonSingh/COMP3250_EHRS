@@ -11,11 +11,11 @@
 
 	$doctor_Query = "SELECT FirstName, LastName, Email, ContactNumber
                     FROM Doctor
-                    WHERE doctorID= (SELECT DoctorID FROM HealthSummary WHERE patientID=$patientID)";
+                    WHERE doctorID= (SELECT DoctorID FROM HealthSummary WHERE patientID='$patientID')";
     $result_doctor = mysqli_query($connection,$doctor_Query);
 	
 	$medication_Query = "SELECT Medicine , Dosage , Indication , Comments , DatePrescribed
-						FROM MEDICATIONHEALTHSUMMARY
+						FROM MedicationHealthSummary
 						WHERE patientID=$patientID;";
 	$result_medication = mysqli_query($connection,$medication_Query);
 	
@@ -37,7 +37,7 @@
 	if(!$result_patient || !$result_doctor || !$result_medication || !$result_immunization || !$result_adverse || !$result_diagnose)
 	{
 		$_SESSION["alert"] = "There was a problem retrieving data for this patient";
-        redirect("patient_dashboard.php");
+                redirect("patient_dashboard.php");
 	}
 ?>
 <!DOCTYPE html>
@@ -136,6 +136,13 @@
         
         <div id="page-wrapper">           
                 <br>
+                <div class="row">
+                <div class="col-lg-6">
+                    <h1 class="page-header">View Health Summary</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
                 <div class="row">
                 <div class="col-lg-6">
                     <div class="panel panel-primary">
@@ -252,7 +259,7 @@
                 </div>
             
                 <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             Medication Information
@@ -317,7 +324,7 @@
             </div>
             
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             Immunization Information
@@ -369,7 +376,7 @@
             
             
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             Adverse Reaction Information
@@ -417,7 +424,7 @@
                 
                 
                 <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             Diagnosis Information

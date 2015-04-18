@@ -225,7 +225,7 @@
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">
 									<?php   
-										$num_summaries_Query = "SELECT patientID FROM HealthSummary WHERE doctorID= $doctorID";
+										$num_summaries_Query = "SELECT HealthSummaryID FROM HealthSummary WHERE doctorID= $doctorID";
 										$result = mysqli_query($connection, $num_summaries_Query);
 										$row_cnt = $result ->num_rows;
 										echo $row_cnt;

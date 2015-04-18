@@ -1,5 +1,5 @@
-<?php session_start(); ?>
 <?php require_once("../includes/database_connection.php"); ?>
+<?php require_once("../includes/doctor_session.php"); ?>
 <?php require_once("../includes/functions.php"); ?>
 <?php require_once("../includes/validations.php"); ?>
 
@@ -11,12 +11,10 @@
 	if(isset($_POST["submit"]))
 	{
         //For passing of patientID and doctorID
-        //$patientID = $_POST['patientID'];
-		 //$patientID = $_POST['doctorID'];
+        $patientID = $_SESSION['passed_id'];
+		$doctorID = $_SESSION['doctor_login'];
         
-        //Remove next line once linked to POST from create document!
-        $patientID=1;
-		$doctorID=1;
+        
 
         //PULL DATA FROM MEDICATION TABLE
         $med_name= $_POST['med_medication_name']; 
@@ -73,7 +71,7 @@
         }
         else{
              foreach($med_name as $pos =>$data){
-                $add_Medication_Query = "INSERT INTO MEDICATIONHEALTHSUMMARY (Medicine , Dosage , Indication , Comments , DatePrescribed , PatientID)";
+                $add_Medication_Query = "INSERT INTO MedicationHealthSummary (Medicine , Dosage , Indication , Comments , DatePrescribed , PatientID)";
                 $add_Medication_Query .= "VALUES('{$med_name[$pos]}','{$med_dosage[$pos]}','{$med_clinical[$pos]}','{$med_comments[$pos]}','{$med_date_prescribed[$pos]}' ,'{$patientID}' );"; 
                 $result = mysqli_query($connection,$add_Medication_Query);
                 if($result)
@@ -88,7 +86,7 @@
              }
             
             foreach($immun_disease as $pos =>$data){
-                $add_Immunization_Query="INSERT INTO IMMUNIZATION (Disease , Vaccine , DateImmunized , PatientID)";
+                $add_Immunization_Query="INSERT INTO Immunization (Disease , Vaccine , DateImmunized , PatientID)";
                 $add_Immunization_Query.="VALUES('{$immun_disease[$pos]}','{$immun_vaccine[$pos]}','{$immun_date_prescribed[$pos]}','{$patientID}'); ";
                 $result = mysqli_query($connection,$add_Immunization_Query);
                 if($result)
@@ -103,7 +101,7 @@
              }
             
             foreach($adv_substance as $pos =>$data){
-                $add_Reaction_Query="INSERT INTO ADVERSEREACTION (Substance , Manifestation , PatientID)";
+                $add_Reaction_Query="INSERT INTO AdverseReaction (Substance , Manifestation , PatientID)";
                 $add_Reaction_Query.=" VALUES('{$adv_substance[$pos]}','{$adv_reaction[$pos]}','{$patientID}')";
                 $result = mysqli_query($connection,$add_Reaction_Query);
                 if($result)
@@ -113,12 +111,12 @@
                 else
                 {
                     $_SESSION["alert"] = "Rows in Adverse Reaction were not successfully added.";
-                    redirect("create_health_summary.php");
+                   redirect("create_health_summary.php");
                 }
              }
             
             foreach($hist_diag as $pos =>$data){
-                $add_History_Query = "INSERT INTO DIAGNOSIS (Diagnosis , DateOfOnSet , Comments , PatientID)";
+                $add_History_Query = "INSERT INTO Diagnosis (Diagnosis , DateOfOnSet , Comments , PatientID)";
                 $add_History_Query .= "VALUES ('{$hist_diag[$pos]}','{$hist_date[$pos]}','{$hist_comment[$pos]}','{$patientID}') ";
                 $result = mysqli_query($connection,$add_History_Query);
                 if($result)
@@ -131,7 +129,7 @@
                     redirect("create_health_summary.php");
                 }
              }
-			 $Health_Summary_Flag_Patient_Update = "UPDATE PATIENT SET SharedHealthFlag='Y' WHERE patientID= $patientID";
+			 $Health_Summary_Flag_Patient_Update = "UPDATE Patient SET SharedHealthFlag='Y' WHERE patientID= $patientID";
              $result = mysqli_query($connection,$Health_Summary_Flag_Patient_Update);
 			 if($result)
 			 {
@@ -144,7 +142,7 @@
 			 }
 			 
 			 //Add information about creation into health summary table.
-             $add_health_summary = "INSERT INTO HEALTHSUMMARY (PatientID, DoctorID, DateCreated)";
+             $add_health_summary = "INSERT INTO HealthSummary (PatientID, DoctorID, DateCreated)";
 			 $add_health_summary .="VALUES ('{$patientID}','{$doctorID}',NOW())";
 			 $result = mysqli_query($connection,$add_health_summary);
 			 if($result)

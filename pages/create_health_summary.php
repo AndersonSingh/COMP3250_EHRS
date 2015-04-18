@@ -1,5 +1,7 @@
 <?php require_once('../includes/doctor_session.php'); ?>
 <?php require_once("../includes/functions.php"); ?>
+<?php $_SESSION['passed_id'] = $_POST['patient_id']?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -28,7 +30,7 @@
 
         <!-- Custom Fonts -->
         <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <script src="../includes/tablejs.js"></script>
+        <script src="../js/tablejs.js"></script>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -96,6 +98,11 @@
                 <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Add New Health Summary</h1>
+                    
+                    <?php
+                    
+                    	//echo $_SESSION['passed_id'];
+                    ?>
                 </div>
                 <!-- /.col-lg-12 -->
                 </div>
